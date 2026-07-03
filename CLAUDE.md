@@ -33,7 +33,8 @@ claude-code-from-scratch/
 │   │   └── chinese-greeting.md
 │   ├── skills/           # Project-level skills (SKILL.md per subdirectory)
 │   │   ├── commit/SKILL.md
-│   │   └── greet/SKILL.md
+│   │   ├── greet/SKILL.md
+│   │   └── karpathy-guidelines/SKILL.md
 │   └── agents/           # Custom sub-agent definitions (*.md with frontmatter)
 │       └── reviewer.md
 ├── test/
@@ -252,6 +253,14 @@ allowed-tools: read_file,grep_search   # optional, fork mode only
 **`$ARGUMENTS`** in the prompt template is replaced with args passed by the user.
 
 **Invocation**: User types `/<name> [args]`, or AI uses the `skill` tool.
+
+### Project Skills
+
+| Skill | Invocation | Description |
+|-------|-----------|-------------|
+| `commit` | `/commit [context]` | Stage 확인 후 git commit 메시지 작성 및 커밋 |
+| `greet` | `/greet [name]` | 짧고 창의적인 인사말 생성 |
+| `karpathy-guidelines` | `/karpathy-guidelines` | LLM 코딩 실수를 줄이기 위한 행동 지침 (Andrej Karpathy 기반): 코딩 전 가정 명시, 단순성 우선, 최소 변경, 검증 가능한 목표 설정 |
 
 ---
 
