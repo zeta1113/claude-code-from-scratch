@@ -34,7 +34,10 @@ claude-code-from-scratch/
 │   ├── skills/           # Project-level skills (SKILL.md per subdirectory)
 │   │   ├── commit/SKILL.md
 │   │   ├── greet/SKILL.md
-│   │   └── karpathy-guidelines/SKILL.md
+│   │   ├── karpathy-guidelines/SKILL.md
+│   │   └── harness/
+│   │       ├── SKILL.md
+│   │       └── references/ # 6 pattern/template reference docs
 │   └── agents/           # Custom sub-agent definitions (*.md with frontmatter)
 │       └── reviewer.md
 ├── test/
@@ -261,6 +264,7 @@ allowed-tools: read_file,grep_search   # optional, fork mode only
 | `commit` | `/commit [context]` | Stage 확인 후 git commit 메시지 작성 및 커밋 |
 | `greet` | `/greet [name]` | 짧고 창의적인 인사말 생성 |
 | `karpathy-guidelines` | `/karpathy-guidelines` | LLM 코딩 실수를 줄이기 위한 행동 지침 (Andrej Karpathy 기반): 코딩 전 가정 명시, 단순성 우선, 최소 변경, 검증 가능한 목표 설정 |
+| `harness` | `/harness` | 에이전트 팀 & 스킬 아키텍트 메타 스킬. 도메인 설명을 에이전트 팀과 스킬 세트로 자동 변환 (6가지 아키텍처 패턴). `references/`에 오케스트레이터 템플릿, 스킬 작성 가이드, 테스트 가이드, QA 가이드, 팀 예시 포함 |
 
 ---
 
@@ -341,3 +345,11 @@ Sessions auto-save to `~/.mini-claude/sessions/<uuid>.json` after each `chat()` 
 - **Do not edit `MEMORY.md` directly**: It is auto-rebuilt from memory files.
 - **Deferred tools**: `enter_plan_mode` and `exit_plan_mode` are not included in the active tool list by default. Use `tool_search` to activate them.
 - **Cost tracking**: Cost is estimated at $3/M input + $15/M output tokens. The model can check via `/cost`.
+
+---
+
+## Harness 포인터
+
+- **트리거**: 에이전트 팀 구축, 멀티 에이전트 설계, 스킬 아키텍처, 하네스 구성/확장/재설계/업데이트 요청 시 `/harness` 스킬 활성화
+- **변경 이력**:
+  - 2026-07-03: harness v1.2.0 추가 (revfactory/harness) — 에이전트 팀 & 스킬 아키텍트 메타 스킬, 6가지 아키텍처 패턴, 참조 문서 6종
